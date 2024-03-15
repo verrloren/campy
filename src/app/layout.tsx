@@ -6,32 +6,36 @@ import RegisterModal from "./components/modals/RegisterModal";
 import ToasterProvider from "./providers/ToasterProvider";
 import LoginModal from "./components/modals/LoginModal";
 import getCurrentUser from "./actions/getCurrentUser";
+import { RentModal } from "./components/modals/RentModal";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Airbnb",
-  description: "Airbnb clone",
+	title: "Airbnb",
+	description: "Airbnb clone",
 };
 
 export default async function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
 
 	//get current user from database with prisma on server side
 	const currentUser = await getCurrentUser();
-	
-  return (
-    <html lang="en">
-      <body className={nunito.className}>
+
+	return (
+		<html lang="en">
+			<body className={nunito.className}>
 				<ToasterProvider />
 				<LoginModal />
+				<RentModal />
 				<RegisterModal />
 				<Navbar currentUser={currentUser} />
-				{children}
-				</body>
-    </html>
-  );
+				<div className="pb-20 pt-28">
+					{children}
+				</div>
+			</body>
+		</html>
+	);
 }
