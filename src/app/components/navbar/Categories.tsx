@@ -4,6 +4,7 @@ import Container from "../Container";
 import { CategoryBox } from "../CategoryBox";
 import { usePathname, useSearchParams } from "next/navigation";
 import { categories } from "@/app/libs/categories";
+import { Suspense } from "react";
 
 
 export function Categories() {	
@@ -20,19 +21,21 @@ export function Categories() {
 
 
 	return (
-		<div className="w-full h-full bg-[#F4F4F4]">
-			<Container>
-				<div className="pt-4 bg-[#F4F4F4] flex flex-row items-center justify-between overflow-x-auto">
-					{categories.map((item) => (
-						<CategoryBox
-							key={item.label}
-							label={item.label}
-							selected={category === item.label}
-							icon={item.icon}
-						/>
-					))}
-				</div>
-			</Container>
-		</div>
+		<Suspense>
+			<div className="w-full h-full bg-[#F4F4F4]">
+				<Container>
+					<div className="pt-4 bg-[#F4F4F4] flex flex-row items-center justify-between overflow-x-auto">
+						{categories.map((item) => (
+							<CategoryBox
+								key={item.label}
+								label={item.label}
+								selected={category === item.label}
+								icon={item.icon}
+							/>
+						))}
+					</div>
+				</Container>
+			</div>
+		</Suspense>
 	)
 }

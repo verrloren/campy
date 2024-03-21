@@ -4,7 +4,7 @@ import useCountries from "@/app/hooks/useCountries";
 import useSearchModal from "@/app/hooks/useSearchModal";
 import { differenceInDays } from "date-fns";
 import { useSearchParams } from "next/navigation";
-import { useMemo } from "react";
+import { Suspense, useMemo } from "react";
 import { BiSearch } from "react-icons/bi"
 
 interface SearchProps {
@@ -56,42 +56,40 @@ export function Search({ scrollY }: SearchProps) {
 	
 
 	return (
-		<div 
-			onClick={searchModal.onOpen}
-			className={`w-full md:w-auto py-2
-			shadow-sm transition cursor-pointer rounded-full group 
-			${scrollY > 50 
-				? 'border-[.1rem] hover:border-[#999] border-[#bbb] hover:shadow-md' 
-				: 'border-[.1rem] hover:border-[#3b3b3b] border-[#363636] hover:shadow-lg'}`}
-			>
-			<div className="flex flex-row items-center justify-between">
-
-				<div className="text-sm font-semibold px-6  text-darkGray
-				group-hover:text-[#828282] transition-colors">
-						{locationLabel}
-				</div>
-
-				<div className="hidden sm:block text-sm font-semibold px-6  text-darkGray
-				border-x-[1px] flex-1 text-center
-				group-hover:text-[#828282] transition-colors">
-					{durationLabel}
-				</div>
-
-				<div className="text-sm pl-6 pr-2 darkGray
-				flex flex-row items-center gap-3">
-					<div className="hidden text-darkGray sm:block
+		<Suspense>
+			<div
+				onClick={searchModal.onOpen}
+				className={`w-full md:w-auto py-2
+				shadow-sm transition cursor-pointer rounded-full group
+				${scrollY > 50
+					? 'border-[.1rem] hover:border-[#999] border-[#bbb] hover:shadow-md'
+					: 'border-[.1rem] hover:border-[#3b3b3b] border-[#363636] hover:shadow-lg'}`}
+				>
+				<div className="flex flex-row items-center justify-between">
+					<div className="text-sm font-semibold px-6  text-darkGray
 					group-hover:text-[#828282] transition-colors">
-						{guestLabel}
+							{locationLabel}
 					</div>
-					<div className="p-2  rounded-full text-white ">
-						<BiSearch 
-						className="text-darkGray group-hover:text-accent transition-colors" 
-						size={17} />
+					<div className="hidden sm:block text-sm font-semibold px-6  text-darkGray
+					border-x-[1px] flex-1 text-center
+					group-hover:text-[#828282] transition-colors">
+						{durationLabel}
+					</div>
+					<div className="text-sm pl-6 pr-2 darkGray
+					flex flex-row items-center gap-3">
+						<div className="hidden text-darkGray sm:block
+						group-hover:text-[#828282] transition-colors">
+							{guestLabel}
+						</div>
+						<div className="p-2  rounded-full text-white ">
+							<BiSearch
+							className="text-darkGray group-hover:text-accent transition-colors"
+							size={17} />
+						</div>
 					</div>
 				</div>
-
 			</div>
-		</div>
+		</Suspense>
  )
 }
 
