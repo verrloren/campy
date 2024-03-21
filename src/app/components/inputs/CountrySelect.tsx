@@ -39,7 +39,7 @@ export function CountrySelect({value, onChange}: CountrySelectProps) {
 					</div>
 				)}
 				classNames={{
-					control: () => 'p-3 border-2',
+					control: () => 'p-3 border-[1px]',
 					input: () => 'text-lg',
 					option: () => 'text-lg'
 				}}
@@ -48,8 +48,8 @@ export function CountrySelect({value, onChange}: CountrySelectProps) {
 					borderRadius: 6,
 					colors: {
 						...theme.colors,
-						primary: 'black',
-						primary25: '#ffe4d6'
+						primary: '#191919',
+						primary25: '#8dffe1'
 					}
 				})} />
 		</div>

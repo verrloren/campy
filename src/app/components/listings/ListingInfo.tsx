@@ -54,7 +54,7 @@ export function ListingInfo({
 				</div>
 
 			</div>
-			<hr />
+			<hr className='border-[#ccc]'  />
 			{category && (
 				<ListingCategory 
 					icon={category.icon}
@@ -62,11 +62,11 @@ export function ListingInfo({
 					description={category?.description}
 				/>
 			)}
-			<hr />
-			<div className="text-lg font-light text-neutral-500">
+			<hr className='border-[#ccc]' />
+			<div className="text-lg font-light text-neutral-600">
 				{description}
 			</div>
-			<hr />
+			<hr className='border-[#ccc]' />
 			<Map center={coordinates} />
 
 		</div>

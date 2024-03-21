@@ -53,8 +53,7 @@ export function ListingReservation({
 
 				<div className="p-4 flex flex-row items-center 
 				justify-between font-semibold text-lg">
-					<div>Total</div>
-					<div>$ {totalPrice}</div>
+					<div><span>Total: </span> $ {totalPrice}</div>
 				</div>
 			</div>
 		</div>

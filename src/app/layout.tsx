@@ -12,8 +12,8 @@ import { SearchModal } from "./components/modals/SearchModal";
 const nunito = Nunito({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-	title: "Airbnb",
-	description: "Airbnb clone",
+	title: "Campy",
+	description: "Campy is a platform to find and reserve a beautiful properties all over the globe with with comfort",
 };
 
 export default async function RootLayout({

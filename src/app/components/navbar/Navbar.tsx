@@ -1,4 +1,5 @@
 'use client'
+import { useEffect, useState } from "react";
 import Container from "../Container";
 import { Categories } from "./Categories";
 import { Logo } from "./Logo";
@@ -12,19 +13,42 @@ interface NavbarProps {
 
 
 const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
+
+	const [scrollY, setScrollY] = useState(0);
+
+	useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+		window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+	
+
 	return (
-		<div className="fixed w-full bg-white z-10 shadow-sm">
-			<div className="py-4 border-b-[.1rem]">
+		<div className="fixed w-full z-10">
+			<div className={`py-7 transition-colors	w-full min-h-24
+			${scrollY > 50 
+				? 'bg-white/90 backdrop-blur-md shadow-sm' 
+				: 'bg-evenDarkGrayNav/90 backdrop-blur-md shadow-md'
+			}`}>
 				<Container>
-					<div className="flex flex-row items-center justify-between gap-3 md:gap-0">
+					<div className="flex flex-row items-center 
+					justify-between gap-3 md:gap-0">
+						
 						<Logo />
-						<Search />
-						<UserMenu currentUser={currentUser} />
+
+						<Search scrollY={scrollY} />
+
+						<UserMenu scrollY={scrollY} currentUser={currentUser} />
 					</div>
 				</Container>
 			</div>
 
-			<Categories />
+			
 		</div>
  )
 }

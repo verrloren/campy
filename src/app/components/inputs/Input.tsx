@@ -31,12 +31,12 @@ const Input: FC<InputProps> = ({
 				<BiDollar size={24} className='text-neutral-700 absolute top-5 left-2' />
 			)}
 			<input 
-				className={`peer w-full p-4 pt-6 font-light bg-white border-2 
+				className={`peer w-full p-4 pt-6 font-light bg-white border-[1px]
 				rounded-md outline-none transition disabled:opacity-70 
 				disabled:cursor-not-allowed 
 				${formatPrice ? 'pl-9' : 'pl-4'}
-				${errors[id] ? 'border-rose-500' : 'border-neutral-300'}
-				${errors[id] ? 'focus:border-rose-500' : 'focus:border-black'}`}
+				${errors[id] ? 'border-red' : 'border-neutral-400'}
+				${errors[id] ? 'focus:border-red' : 'focus:border-neutral-800'}`}
 				id={id}
 				disabled={disabled}
 				{...register(id, { required })}
@@ -52,7 +52,7 @@ const Input: FC<InputProps> = ({
 				peer-placeholder-shown:translate-y-0
 				peer-focus:scale-75
 				peer-focus:-translate-y-4
-				${errors[id] ? 'text-rose-500' : 'text-zinc-400'}
+				${errors[id] ? 'text-red' : 'text-zinc-400'}
 				`}>
 				{label}
 			</label>

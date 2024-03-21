@@ -7,8 +7,9 @@ export function Logo() {
 	return (
 		<Image
 			onClick={() => router.push('/')}
-			src='/images/logo.png'	
-			className="hidden md:block cursor-pointer"
+			src='/images/logoCampyBlue.png'	
+			className="hidden md:block cursor-pointer 
+			hover:brightness-110 transition-colors"
 			height='100'
 			width='100'
 			alt="logo" />

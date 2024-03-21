@@ -23,16 +23,18 @@ const Button: FC<ButtonProps> = ({
 		<button
 			disabled={disabled}
 			onClick={onClick}
-			className={`relative disabled:opacity-70 
-			disabled:cursor-not-allowed rounded-lg 
-			hover:opacity-80 transition w-full
-			${outline ? 'bg-white' : 'bg-rose-500'}
-			${outline ? 'border-black' : 'border-rose-500'}
-			${outline ? 'text-black' : 'text-white'}
+			className={`relative disabled:opacity-70 py-4  hover:shadow-inner
+			disabled:cursor-not-allowed rounded-lg transition w-full
+			${outline ? 'hover:border-neutral-500 hover:text-[#555]' 
+				: 'hover:bg-[#171717] hover:text-accent'}
+			${outline ? 'bg-white/0 ' : 'bg-evenDarkGray'}
+			${outline ? 'shadow-sm' : 'shadow-md'}
+			${outline ? 'border-neutral-600' : 'border-evenDarkGray'}
+			${outline ? 'text-neutral-700' : 'text-white'}
 			${small ? 'py-1' : 'py-3'}
 			${small ? 'text-small' : 'text-md'}
 			${small ? 'font-light' : 'font-semibold'}
-			${small ? 'border-[1px]' : 'border-2'}
+			${small ? 'border-[1px]' : 'border-[.1rem]'}
 			`}
 		>
 			{Icon && (

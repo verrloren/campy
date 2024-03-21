@@ -19,7 +19,7 @@ export function Calendar({
 }: CalendarProps) {
 	return (
 		<DateRange
-			rangeColors={['#262626']}
+			rangeColors={['#1C1C1C']}
 			ranges={[value]}
 			date={new Date()}
 			onChange={onChange}

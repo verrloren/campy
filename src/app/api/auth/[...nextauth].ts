@@ -13,10 +13,12 @@ export const authOptions: AuthOptions = {
 		GithubProvider({
 			clientId: process.env.GITHUB_ID as string,
 			clientSecret: process.env.GITHUB_SECRET as string,
+			allowDangerousEmailAccountLinking: true
 		}),
 		GoogleProvider({
 			clientId: process.env.GOOGLE_CLIENT_ID as string,
 			clientSecret:process.env.GOOGLE_CLIENT_SECRET as string,
+			allowDangerousEmailAccountLinking: true
 		}),
 		CredentialsProvider({
 			name: 'credentials',
@@ -49,7 +51,6 @@ export const authOptions: AuthOptions = {
 	pages: {
 		signIn: '/'
 	},
-	// debug: process.env.NODE_ENV === 'development',
 	session: {
 		strategy: 'jwt',
 	},

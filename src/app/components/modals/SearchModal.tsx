@@ -127,7 +127,6 @@ export function SearchModal() {
 					setLocation(value as CountrySelectType)
 				}} 
 			/>
-			<hr />
 			<Map center={location?.latlng} />
 		</div>
 	)

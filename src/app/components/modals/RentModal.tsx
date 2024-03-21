@@ -179,21 +179,20 @@ export function RentModal({ }: IRentModal) {
 					value={guestCount}
 					onChange={value => setCustomValue('guestCount', value)} 
 				/>
-				<hr />
+				<hr className='border-[#ccc]' />
 				<Counter 
 					title="Rooms"
 					subtitle="How many rooms do you have?"
 					value={roomCount}
 					onChange={value => setCustomValue('roomCount', value)} 
 				/>
-				<hr />
+				<hr className='border-[#ccc]' />
 				<Counter 
 					title="Bathrooms"
 					subtitle="How many bathrooms do you have?"
 					value={bathroomCount}
 					onChange={value => setCustomValue('bathroomCount', value)} 
 				/>
-				<hr />
 			</div>
 		)
 	}
@@ -233,7 +232,6 @@ export function RentModal({ }: IRentModal) {
 					errors={errors}
 					required
 				/>
-				<hr />
 				<Input 
 					id='description'
 					label='Description'
@@ -279,7 +277,7 @@ export function RentModal({ }: IRentModal) {
 			actionLabel={actionLabel}
 			secondaryActionLabel={secondaryActionLabel}
 			secondaryAction={step === STEPS.CATEGORY ? undefined : onBack}
-			title="Airbnb your home"
+			title="Become a host "
 			body={bodyContent} />
 	)
 }

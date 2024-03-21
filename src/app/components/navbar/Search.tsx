@@ -7,7 +7,11 @@ import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 import { BiSearch } from "react-icons/bi"
 
-export function Search() {
+interface SearchProps {
+	scrollY: number
+}
+
+export function Search({ scrollY }: SearchProps) {
 
 	const searchModal = useSearchModal();
   const params = useSearchParams();
@@ -54,24 +58,35 @@ export function Search() {
 	return (
 		<div 
 			onClick={searchModal.onOpen}
-			className="border-[.1rem] w-full md:w-auto py-2 rounded-full 
-			shadow-sm hover:shadow-md transition cursor-pointer ">
+			className={`w-full md:w-auto py-2
+			shadow-sm transition cursor-pointer rounded-full group 
+			${scrollY > 50 
+				? 'border-[.1rem] hover:border-[#999] border-[#bbb] hover:shadow-md' 
+				: 'border-[.1rem] hover:border-[#3b3b3b] border-[#363636] hover:shadow-lg'}`}
+			>
 			<div className="flex flex-row items-center justify-between">
 
-				<div className="text-sm font-semibold px-6">
+				<div className="text-sm font-semibold px-6  text-darkGray
+				group-hover:text-[#828282] transition-colors">
 						{locationLabel}
 				</div>
 
-				<div className="hidden sm:block text-sm font-semibold px-6 
-				border-x-[1px] flex-1 text-center">
+				<div className="hidden sm:block text-sm font-semibold px-6  text-darkGray
+				border-x-[1px] flex-1 text-center
+				group-hover:text-[#828282] transition-colors">
 					{durationLabel}
 				</div>
 
-				<div className="text-sm pl-6 pr-2 text-gray-600 
+				<div className="text-sm pl-6 pr-2 darkGray
 				flex flex-row items-center gap-3">
-					<div className="hidden sm:block">{guestLabel}</div>
-					<div className="p-2 bg-rose-500 rounded-full text-white">
-						<BiSearch size={15} />
+					<div className="hidden text-darkGray sm:block
+					group-hover:text-[#828282] transition-colors">
+						{guestLabel}
+					</div>
+					<div className="p-2  rounded-full text-white ">
+						<BiSearch 
+						className="text-darkGray group-hover:text-accent transition-colors" 
+						size={17} />
 					</div>
 				</div>
 
@@ -79,3 +94,4 @@ export function Search() {
 		</div>
  )
 }
+
