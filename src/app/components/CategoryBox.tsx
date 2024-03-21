@@ -2,7 +2,7 @@
 
 import { IconType } from "react-icons"
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useCallback } from "react";
+import { useCallback } from "react";
 import qs from 'query-string'
 
 
@@ -48,7 +48,6 @@ export function CategoryBox({ label, icon: Icon, selected }: ICategoryBox) {
 	}, [label, params, router]);
 
 	return (
-		<Suspense>
 			<div
 				onClick={handleCLick}
 				className={`flex flex-col items-center justify-center gap-2 p-3
@@ -60,6 +59,5 @@ export function CategoryBox({ label, icon: Icon, selected }: ICategoryBox) {
 					{label}
 				</div>
 			</div>
-		</Suspense>
 	)
 }

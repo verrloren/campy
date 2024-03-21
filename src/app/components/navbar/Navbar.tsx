@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Container from "../Container";
 import { Logo } from "./Logo";
 import { Search } from "./Search";
@@ -40,7 +40,9 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
 						
 						<Logo />
 
-						<Search scrollY={scrollY} />
+						<Suspense>
+							<Search scrollY={scrollY} />
+						</Suspense>
 
 						<UserMenu scrollY={scrollY} currentUser={currentUser} />
 					</div>

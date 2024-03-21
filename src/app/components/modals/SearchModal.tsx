@@ -5,7 +5,7 @@ import Modal from "./Modal";
 import qs from 'query-string'
 import dynamic from "next/dynamic";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { Range } from 'react-date-range';
 import {CountrySelect, CountrySelectType}
  from "../inputs/CountrySelect";
@@ -176,7 +176,6 @@ export function SearchModal() {
 	}
 	
 	return (
-		<Suspense>
 			<Modal
 				isOpen={searchModal.isOpen}
 				onClose={searchModal.onClose}
@@ -186,6 +185,5 @@ export function SearchModal() {
 				secondaryAction={step === STEPS.LOCATION ? undefined : onBack}
 				body={bodyContent}
 			/>
-		</Suspense>
  )
 }

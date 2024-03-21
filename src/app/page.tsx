@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import getCurrentUser from "./actions/getCurrentUser";
 import getListings, { IListingsParams } from "./actions/getListings";
 import Container from "./components/Container";
@@ -23,7 +24,9 @@ const Home = async ({ searchParams }: HomeProps) => {
 
   return (
     <Container>
-			<Categories />
+			<Suspense>
+				<Categories />
+			</Suspense>
 			<div className="pt-5 grid grid-cols-1 sm:grid-cold-2 bg-[#F4F4F4]
 			md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">
 				{listings.map((listing: SafeListing) => {

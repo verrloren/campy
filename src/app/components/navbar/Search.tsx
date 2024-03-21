@@ -4,7 +4,7 @@ import useCountries from "@/app/hooks/useCountries";
 import useSearchModal from "@/app/hooks/useSearchModal";
 import { differenceInDays } from "date-fns";
 import { useSearchParams } from "next/navigation";
-import { Suspense, useMemo } from "react";
+import { useMemo } from "react";
 import { BiSearch } from "react-icons/bi"
 
 interface SearchProps {
@@ -56,7 +56,6 @@ export function Search({ scrollY }: SearchProps) {
 	
 
 	return (
-		<Suspense>
 			<div
 				onClick={searchModal.onOpen}
 				className={`w-full md:w-auto py-2
@@ -89,7 +88,6 @@ export function Search({ scrollY }: SearchProps) {
 					</div>
 				</div>
 			</div>
-		</Suspense>
  )
 }
 
